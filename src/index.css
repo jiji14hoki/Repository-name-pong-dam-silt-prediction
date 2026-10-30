@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --bg: #f3f6fa; --card: #ffffff; --ink: #0f1f33; --muted: #5b6b7e; --line: #d9e1ea; }
+.dark { --bg: #09141f; --card: #10202f; --ink: #e6edf5; --muted: #93a4b8; --line: #243a50; }
+
+body { background: var(--bg); color: var(--ink); font-family: Inter, system-ui, 'Segoe UI', sans-serif; }
+
+@layer components {
+  .card { @apply rounded-lg border shadow-sm; background: var(--card); border-color: var(--line); }
+  .card-pad { @apply p-4 sm:p-5; }
+  .muted { color: var(--muted); }
+  .h-title { @apply text-lg font-semibold tracking-tight; }
+  .label { @apply block text-xs font-medium mb-1; color: var(--muted); }
+  .input { @apply w-full rounded-md border px-2.5 py-1.5 text-sm; background: var(--card); border-color: var(--line); color: var(--ink); }
+  .input:focus-visible, .btn:focus-visible, .nav-btn:focus-visible, .chip:focus-visible { @apply outline-none ring-2 ring-reservoir-400; }
+  .btn { @apply inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-sm font-medium transition-colors; border-color: var(--line); background: var(--card); color: var(--ink); }
+  .btn:hover { @apply bg-slate-100 dark:bg-slate-800; }
+  .btn-primary { @apply bg-navy-800 text-white border-navy-800 hover:bg-navy-700; }
+  .btn-primary:hover { @apply bg-navy-700; }
+  .btn-danger { @apply text-red-700 dark:text-red-300; }
+  .chip { @apply inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-medium; border-color: var(--line); }
+  .tbl { @apply w-full text-sm; }
+  .tbl th { @apply text-left text-xs font-semibold px-2 py-2 border-b whitespace-nowrap; border-color: var(--line); color: var(--muted); }
+  .tbl td { @apply px-2 py-1.5 border-b align-top; border-color: var(--line); }
+  .nav-btn { @apply flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-sm font-medium text-slate-200 hover:bg-white/10; }
+  .nav-btn[aria-current='page'] { @apply bg-white/15 text-white; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
